@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/YOUR_USERNAME/node_hello_student.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'docker build -t node_hello_student:latest .'
+                }
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                script {
+                    sh 'docker run -d -p 3000:3000 --name node_hello_student_container node_hello_student:latest || true'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            sh 'docker ps -a'
+        }
+    }
+}
+

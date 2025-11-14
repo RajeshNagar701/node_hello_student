@@ -1,0 +1,12 @@
+{
+  "name": "node_hello_student",
+  "version": "1.0.0",
+  "description": "Simple Node.js Hello app for Docker & Jenkins",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
+
