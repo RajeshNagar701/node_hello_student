@@ -12,7 +12,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker rm $(docker ps -aq)'
+                    sh 'docker rm -f node_hello_student || true'
                     sh 'docker build -t node_hello_student:latest .'
                 }
             }
