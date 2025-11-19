@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/YOUR_USERNAME/node_hello_student.git'
+                    url: 'https://github.com/RajeshNagar701/node_hello_student.git'
             }
         }
 
