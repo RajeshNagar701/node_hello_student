@@ -20,7 +20,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
-                    sh 'docker run -d -p 3000:3000 --name node_hello_student_container node_hello_student:latest || true'
+                    sh 'docker run -d -p 3000:3000 --name node_hello_student node_hello_student:latest || true'
                 }
             }
         }
