@@ -12,7 +12,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker rm -f node_hello_student || true'
+                    sh 'docker ps -q --filter "publish=3000" | xargs -r docker stop'
+                    sh 'docker ps -aq --filter "publish=3000" | xargs -r docker rm'
                     sh 'docker build -t node_hello_student:latest .'
                 }
             }
